@@ -8,6 +8,7 @@ import { Patient } from '../patient';
   styleUrl: './admindash.component.css'
 })
 export class AdmindashComponent {
+
   patients:Patient[]=[];
   constructor(private patientService:PatientService){}
   
@@ -20,4 +21,12 @@ export class AdmindashComponent {
  this.patients=data;
     })
   }
+
+  deletePatient(id: number) {
+    this.patientService.delete(id).subscribe(data=>{
+      console.log(data);
+      this.getPatients();
+      
+    })
+    }
 }

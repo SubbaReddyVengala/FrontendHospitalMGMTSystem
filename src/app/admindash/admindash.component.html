@@ -18,11 +18,11 @@
         
       </ul>
 
-      <!--<div class="mx-2">
+      <div class="mx-2">
         
         <button style="margin: 5px;"class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/home">Logout</a></button>
         
-    </div>-->
+    </div>
       
     </div>
   
@@ -45,11 +45,9 @@
         <th>ID</th>
         <th>NAME</th>
         <th>AGE</th>
-        <th>BLOOD</th>
-        <th>URGENCY</th>
         <th>FEES</th>
-        <th>PRESCRIPTION</th>
-        <th>DOSE</th>
+        <th>URGENCY</th>
+        <th>ACTION</th>
       </tr>
     </thead>
     <tbody>
@@ -57,17 +55,11 @@
         <td>{{patient.id}}</td>
         <td>{{patient.name}}</td>
         <td>{{patient.age}}</td>
-        
-        
-        
-        <td>{{ patient.blood }}</td>
-        <td>{{patient.urgency}}</td>
         <td>{{ patient.fees }}</td>
-            <td>{{ patient.prescription }}</td>
-            <td>{{ patient.dose }}</td>
+        <td>{{patient.urgency}}</td>  
         <td>
           
-         <!-- <button (click) = "deletePatient(patient.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> -->
+          <button (click) = "deletePatient(patient.id)" class="btn btn-danger" style="margin-left: 10px;">Delete</button> 
         </td>
       </tr>
     </tbody>
