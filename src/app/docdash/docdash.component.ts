@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Patient } from '../patient';
 import { PatientService } from '../patient.service';
+import { Router } from '@angular/router';
+import { DocauthService } from '../docauth.service';
 
 
 @Component({
@@ -9,12 +11,10 @@ import { PatientService } from '../patient.service';
   styleUrl: './docdash.component.css'
 })
 export class DocdashComponent {
-delete(arg0: number) {
-throw new Error('Method not implemented.');
-}
 
-  constructor(private patientService:PatientService){}
 
+
+  constructor(private patientService:PatientService,private router:Router,private docAuthService:DocauthService){}
 
 patients:Patient[]=[];
 
@@ -28,5 +28,25 @@ getPatients(){
     
   });
 }
+
+update(id:number){
+this.router.navigate(['/updatePatient',id])
+}
+
+delete(id:number) {
+  this.patientService.delete(id).subscribe(data=>{
+     console.log(data);
+     this.getPatients();
+  })
+  }
+
+  view(id: number) {
+    this.router.navigate(['viewPatient',id]);
+    }
+
+    logout(){
+     this.docAuthService.logout();
+     this.router.navigate(['home']);
+    }
 
 }

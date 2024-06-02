@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { PatientService } from '../patient.service';
 import { Patient } from '../patient';
+import { AdminAuthService } from '../admin-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admindash',
@@ -10,7 +12,7 @@ import { Patient } from '../patient';
 export class AdmindashComponent {
 
   patients:Patient[]=[];
-  constructor(private patientService:PatientService){}
+  constructor(private patientService:PatientService,private adminAuthService:AdminAuthService,private route:Router){}
   
   ngOnInit():void{
     this.getPatients();
@@ -28,5 +30,10 @@ export class AdmindashComponent {
       this.getPatients();
       
     })
+    }
+
+    logout(){
+   this.adminAuthService.logout();
+   this.route.navigate(['home'])
     }
 }

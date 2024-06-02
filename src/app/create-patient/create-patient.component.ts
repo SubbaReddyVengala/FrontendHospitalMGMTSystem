@@ -3,6 +3,7 @@ import { PatientService } from '../patient.service';
 import { Patient } from '../patient';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-create-patient',
   templateUrl: './create-patient.component.html',
@@ -25,6 +26,6 @@ onSubmit(){
 }
 
 goToPatientList(){
-  this.router.navigate(['/docdash']);
+  this.router.navigate(['docdash']);
 }
 }
